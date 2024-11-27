@@ -13,7 +13,14 @@ monolog:
       path: "%kernel.logs_dir%/%kernel.environment%.log"
       level: error
       max_files: 14
+      channels: ["!deprecation", "!elasticsearch"]
+    search:
+      type: rotating_file
+      path: "%kernel.logs_dir%/%kernel.environment%_search.log"
+      level: error
+      max_files: 14
+      channels: [ "elasticsearch" ]
     console:
       type: console
       process_psr_3_messages: false
-      channels: ["!event", "!doctrine"]
+      channels: ["!event", "!doctrine", "!deprecation", "!elasticsearch"]

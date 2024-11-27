@@ -1,4 +1,2 @@
 monolog:
-  processors:
-    - Symfony\Bridge\Monolog\Processor\WebProcessor
-    - Symfony\Bridge\Monolog\Processor\MemoryUsageProcessor
+  channels: ['elasticsearch', 'deprecation']
